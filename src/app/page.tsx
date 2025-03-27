@@ -1,8 +1,11 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, MapPin, Phone, Mail, Clock, Instagram, Facebook, Youtube } from "lucide-react"
+import { ChevronRight, MapPin, Phone, Mail, Clock, Instagram, Facebook, Youtube, Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export default function LandingPage() {
   return (
@@ -11,7 +14,7 @@ export default function LandingPage() {
       <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between py-4">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/28RidersWhite.png" alt="28Riders Logo" width={120} height={50} className="h-auto w-auto" />
+            <Image src="/28RidersWhite.png" alt="28Riders Logo" width={110} height={40} />
           </Link>
           <nav className="hidden md:flex gap-6">
             <Link href="#about" className="text-sm font-medium transition-colors hover:text-primary">
@@ -31,23 +34,56 @@ export default function LandingPage() {
             </Link>
           </nav>
           <Button className="hidden md:flex bg-[#e32929] hover:bg-[#c41f1f] text-white">Inscríbete Ahora</Button>
-          <Button variant="outline" size="icon" className="md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-4 w-4"
-            >
-              <path d="M3 12h18M3 6h18M3 18h18"></path>
-            </svg>
-            <span className="sr-only">Toggle menu</span>
-          </Button>
+          {/* Mobile Navigation */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Abrir menú</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-white">
+              <div className="flex flex-col h-full">
+                <div className="py-6">
+                  <nav className="flex flex-col gap-4">
+                    <Link
+                      href="#about"
+                      className="text-lg font-medium py-2 border-b border-gray-100 transition-colors hover:text-primary"
+                    >
+                      Nosotros
+                    </Link>
+                    <Link
+                      href="#courses"
+                      className="text-lg font-medium py-2 border-b border-gray-100 transition-colors hover:text-primary"
+                    >
+                      Cursos
+                    </Link>
+                    <Link
+                      href="#instructors"
+                      className="text-lg font-medium py-2 border-b border-gray-100 transition-colors hover:text-primary"
+                    >
+                      Instructores
+                    </Link>
+                    <Link
+                      href="#testimonials"
+                      className="text-lg font-medium py-2 border-b border-gray-100 transition-colors hover:text-primary"
+                    >
+                      Testimonios
+                    </Link>
+                    <Link
+                      href="#contact"
+                      className="text-lg font-medium py-2 border-b border-gray-100 transition-colors hover:text-primary"
+                    >
+                      Contacto
+                    </Link>
+                  </nav>
+                </div>
+                <div className="mt-auto pb-8">
+                  <Button className="w-full bg-[#e32929] hover:bg-[#c41f1f] text-white">Inscríbete Ahora</Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </header>
 
@@ -79,7 +115,7 @@ export default function LandingPage() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-16 md:py-24 bg-white">
+        <section id="about" className="py-16 px-4 md:px-0 md:py-24 bg-white">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2 items-center">
               <div>
@@ -109,7 +145,7 @@ export default function LandingPage() {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 md:py-24 bg-[#f5f5f5]">
+        <section className="py-16 px-4 md:px-0 md:py-24 bg-[#f5f5f5]">
           <div className="container mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#1a1a1a]">
@@ -192,7 +228,7 @@ export default function LandingPage() {
         </section>
 
         {/* Courses Section */}
-        <section id="courses" className="py-16 md:py-24 bg-white">
+        <section id="courses" className="py-16 px-4 md:px-0 md:py-24 bg-white">
           <div className="container mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#1a1a1a]">
@@ -264,7 +300,7 @@ export default function LandingPage() {
         </section>
 
         {/* Instructors Section */}
-        <section id="instructors" className="py-16 md:py-24 bg-[#f5f5f5]">
+        <section id="instructors" className="py-16 px-4 md:px-0 md:py-24 bg-[#f5f5f5]">
           <div className="container mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#1a1a1a]">
@@ -328,7 +364,7 @@ export default function LandingPage() {
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="py-16 md:py-24 bg-white">
+        <section id="testimonials" className="py-16 px-4 md:px-0 md:py-24 bg-white">
           <div className="container mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#1a1a1a]">
@@ -393,8 +429,8 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <p className="text-muted-foreground mb-6">
-                  "La mejor decisión que tomé fue inscribirme en 28Riders. Los instructores son excelentes y la
-                  metodología de enseñanza es muy efectiva. Ahora me siento mucho más seguro al conducir mi moto."
+                &quot;La mejor decisión que tomé fue inscribirme en 28Riders. Los instructores son excelentes y la
+                  metodología de enseñanza es muy efectiva. Ahora me siento mucho más seguro al conducir mi moto.&quot;
                 </p>
                 <div className="flex items-center">
                   <div className="h-12 w-12 rounded-full bg-gray-300 mr-4"></div>
@@ -458,8 +494,8 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <p className="text-muted-foreground mb-6">
-                  "Increíble experiencia. Aprendí técnicas que nunca imaginé y los instructores tienen una paciencia
-                  infinita. Recomiendo 100% esta academia para cualquier nivel de experiencia."
+                &quot;Increíble experiencia. Aprendí técnicas que nunca imaginé y los instructores tienen una paciencia
+                  infinita. Recomiendo 100% esta academia para cualquier nivel de experiencia.&quot;
                 </p>
                 <div className="flex items-center">
                   <div className="h-12 w-12 rounded-full bg-gray-300 mr-4"></div>
@@ -523,8 +559,8 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <p className="text-muted-foreground mb-6">
-                  "Como piloto avanzado, buscaba perfeccionar mi técnica y 28Riders superó mis expectativas. El nivel de
-                  detalle en la enseñanza y las instalaciones son de primer nivel."
+                  &quot;Como piloto avanzado, buscaba perfeccionar mi técnica y 28Riders superó mis expectativas. El nivel de
+                  detalle en la enseñanza y las instalaciones son de primer nivel.&quot;
                 </p>
                 <div className="flex items-center">
                   <div className="h-12 w-12 rounded-full bg-gray-300 mr-4"></div>
@@ -539,7 +575,7 @@ export default function LandingPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-24 bg-[#1a1a1a] text-white">
+        <section className="py-16 px-4 md:px-0 md:py-24 bg-[#1a1a1a] text-white">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
@@ -567,7 +603,7 @@ export default function LandingPage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-16 md:py-24 bg-white">
+        <section id="contact" className="py-16 px-4 md:px-0 md:py-24 bg-white">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
@@ -699,7 +735,7 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#1a1a1a] text-white py-12">
+      <footer className="bg-[#1a1a1a] px-4 md:px-0 text-white py-12">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
