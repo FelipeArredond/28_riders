@@ -12,7 +12,7 @@ export default function LandingPage() {
     <div className="flex min-h-screen flex-col align-middle">
       {/* Navigation */}
       <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between py-4">
+        <div className="container flex h-16 items-center justify-around py-4 mx-auto">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/28RidersWhite.png" alt="28Riders Logo" width={110} height={40} />
           </Link>
